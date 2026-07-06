@@ -40,4 +40,5 @@ def test_all_posts():
     )
     check.is_true(
         isinstance(posts, list),
+        "La respuesta no es una lista"
     )

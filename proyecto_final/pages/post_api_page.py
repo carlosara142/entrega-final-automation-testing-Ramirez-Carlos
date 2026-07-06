@@ -13,4 +13,14 @@ class PostApi:
        return requests.get(
            f"{self.URL_BASE}/posts/{post_id}"
         )
-    
+#crear un post
+    def create_post(self, user_id, title, body):
+        post_data = {
+            "userId": user_id,
+            "title": title,
+            "body": body
+        }
+        return requests.post(
+            f"{self.URL_BASE}/posts",
+            json=post_data
+        )
