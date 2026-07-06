@@ -1,0 +1,5 @@
+#Tecnologias requeridas
+pytest
+requests
+pytest-html
+
