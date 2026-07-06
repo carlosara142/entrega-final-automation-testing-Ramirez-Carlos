@@ -13,16 +13,12 @@
  - pip instal requests
 
 # Comando del terminal para ejecutar todas las pruebas
+# las pruebas incluyes: -testde GET todos los post -test de GET obtener un post y - test de POST crear un posteo
+
 pytest 
-"ya la generacion de reportes y funciones pytest estan pre configuradas en pytest.ini"
-
-# Rutas para pruebas unitarias en el termianl #
-
-# Validar el login
-pytest tests/test_saucedemo.py::test_login -v
-
+"ya la generacion de reportes y lasfunciones pytest estan pre configuradas en pytest.ini"
 
 
 # Generar reporte HTML
 pytest 
-"ya la generacion de reportes estan pre configuradas en pytest.ini"
+"ya la generacion de reportes estan pre configuradas en pytest.ini y el cambio de nombre se puede configurar en el conftest"
