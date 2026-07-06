@@ -22,3 +22,22 @@ def test_get_one_post():
         1,
         "ID no coincide"
         )
+def test_all_posts():
+    logger.info("Obteniendo todos los posts")
+    response = api.get_all_posts()
+    print(response)
+
+    check.equal(
+        response.status_code,
+        200,
+        "Status incorrecto"
+        )
+    posts=response.json()
+
+    check.is_true(
+        len(posts) > 0,
+        "No se encontraron posts"
+    )
+    check.is_true(
+        isinstance(posts, list),
+    )
