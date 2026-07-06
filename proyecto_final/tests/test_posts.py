@@ -22,6 +22,7 @@ def test_get_one_post():
         1,
         "ID no coincide"
         )
+    
 def test_all_posts():
     logger.info("Obteniendo todos los posts")
     response = api.get_all_posts()
@@ -41,4 +42,33 @@ def test_all_posts():
     check.is_true(
         isinstance(posts, list),
         "La respuesta no es una lista"
+    )
+
+def test_create_post(posts_data):
+    logger.info("Creando un post")
+    response = api.create_post(
+        posts_data["userId"],
+        posts_data["title"],
+        posts_data["body"]
+    )
+    check.equal(
+        response.status_code,
+        201,
+        "Status incorrecto"
+    )
+    body = response.json()
+    check.equal(
+        body["userId"],
+        posts_data["userId"],
+        "UserId no coincide"
+    )
+    check.equal(
+        body["title"],
+        posts_data["title"],
+        "Title no coincide"
+    )
+    check.equal(
+        body["body"],
+        posts_data["body"],
+        "Body no coincide"
     )
