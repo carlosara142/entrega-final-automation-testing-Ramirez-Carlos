@@ -2,9 +2,9 @@ import logging
 import os
 
 #Crear registro de logs de pruebas
-os.makedirs("logs", exist_ok=True)
+os.makedirs("proyecto_final/logs", exist_ok=True)
 logging.basicConfig(
-    filename="logs/execution.log",
+    filename="proyecto_final/logs/execution.log",
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
     force=True

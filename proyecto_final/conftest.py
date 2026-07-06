@@ -5,7 +5,7 @@ def posts_data():
     return {
     "userId": 23,
     "title": "mi primer post",
-    "body": "contenido de mi primer posteo"
+    "body": "contenido de mi primer post"
     }
 
 @pytest.fixture

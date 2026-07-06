@@ -1,18 +1,24 @@
 import pytest
-
+import pytest_check as check
 from pages.post_api_page import PostApi
-from utils.logger import get_logger
+from utils.logger import logger
 
 api = PostApi()
-logger=get_logger()
+
 
 def test_get_one_post():
-    logger.info("SE INICIA EL LLAMADO DEL POST")
-    logger.info(f"LLAMADO AL POST CON ID: {api.get_one_post().id}")
-    post_id = 2
-    res= api.get_post(post_id)
+    logger.info("Obteniendo un post en especifico")
+    
+    response = api.get_one_post(1)
 
-def test_delete_one_post():
-    logger.info("SE INICIA EL LLAMADO DEL POST")
-    logger.info(f"LLAMADO AL POST CON ID: {api.get_one_post().id}")
-    res= api.delete_post(post_id)
+    check.equal(
+        response.status_code,
+        200,
+        "Status incorrecto"
+        )
+    body = response.json()
+    check.equal(
+        body["id"], #meda el valor del id del post
+        1,
+        "ID no coincide"
+        )
